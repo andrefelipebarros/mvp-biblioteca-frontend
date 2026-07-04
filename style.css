@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+header {
+  background-color: #1f3b57;
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 10px;
+}
+
+header p {
+  margin: 0 0 15px;
+}
+
+#apiStatus {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #dddddd;
+  color: #222;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#apiStatus.online {
+  background-color: #d9f2dd;
+}
+
+#apiStatus.offline {
+  background-color: #ffd7d7;
+}
+
+nav {
+  max-width: 1000px;
+  margin: 15px auto;
+  padding: 0 15px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  border: 1px solid #1f3b57;
+  background-color: white;
+  color: #1f3b57;
+  padding: 9px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover,
+button.ativo {
+  background-color: #1f3b57;
+  color: white;
+}
+
+button.perigo {
+  border-color: #a12626;
+  color: #a12626;
+}
+
+button.perigo:hover {
+  background-color: #a12626;
+  color: white;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 0 15px;
+}
+
+.pagina {
+  display: none;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.pagina.ativa {
+  display: block;
+}
+
+h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.resumo,
+.duas-colunas,
+.cards {
+  display: grid;
+  gap: 15px;
+}
+
+.resumo {
+  grid-template-columns: repeat(3, 1fr);
+  margin: 15px 0;
+}
+
+.duas-colunas {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cards {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 15px;
+}
+
+.caixa,
+.card-livro,
+.item-reserva {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  background-color: #fafafa;
+}
+
+.caixa strong {
+  font-size: 32px;
+}
+
+.formulario {
+  display: grid;
+  gap: 10px;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.formulario.linha {
+  max-width: none;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  align-items: end;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.card-livro h3 {
+  margin: 0 0 8px;
+}
+
+.card-livro p,
+.item-reserva p {
+  margin: 5px 0;
+}
+
+.acoes {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.acoes button {
+  padding: 7px 10px;
+  font-size: 14px;
+}
+
+.linha-lista {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 7px 0;
+}
+
+.lista {
+  display: grid;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.observacao {
+  color: #555;
+}
+
+#mensagem {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  max-width: 330px;
+  padding: 12px;
+  background-color: #222;
+  color: white;
+  border-radius: 4px;
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .resumo,
+  .duas-colunas,
+  .cards,
+  .formulario.linha {
+    grid-template-columns: 1fr;
+  }
+}

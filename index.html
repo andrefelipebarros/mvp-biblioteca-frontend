@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Biblioteca Digital</h1>
+    <p>Sistema simples para cadastro de livros e reservas.</p>
+    <span id="apiStatus">Verificando API...</span>
+  </header>
+
+  <nav>
+    <button class="menu ativo" data-pagina="dashboard">Início</button>
+    <button class="menu" data-pagina="livros">Livros</button>
+    <button class="menu" data-pagina="cadastro">Cadastrar</button>
+    <button class="menu" data-pagina="reservas">Reservas</button>
+    <button class="menu" data-pagina="configuracao">Configuração</button>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="pagina ativa">
+      <h2>Resumo</h2>
+      <button id="btnAtualizarResumo">Atualizar resumo</button>
+
+      <div class="resumo">
+        <div class="caixa">
+          <p>Livros</p>
+          <strong id="totalLivros">0</strong>
+        </div>
+        <div class="caixa">
+          <p>Reservas</p>
+          <strong id="totalReservas">0</strong>
+        </div>
+        <div class="caixa">
+          <p>Disponíveis</p>
+          <strong id="totalDisponiveis">0</strong>
+        </div>
+      </div>
+
+      <div class="duas-colunas">
+        <div class="caixa">
+          <h3>Livros por status</h3>
+          <div id="listaStatus"></div>
+        </div>
+        <div class="caixa">
+          <h3>Livros por categoria</h3>
+          <div id="listaCategorias"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="livros" class="pagina">
+      <h2>Livros cadastrados</h2>
+
+      <form id="formFiltros" class="formulario linha">
+        <input type="text" id="filtroBusca" placeholder="Buscar livro, autor ou categoria">
+        <select id="filtroStatus">
+          <option value="">Todos os status</option>
+          <option value="disponivel">Disponível</option>
+          <option value="reservado">Reservado</option>
+          <option value="emprestado">Emprestado</option>
+        </select>
+        <input type="text" id="filtroCategoria" placeholder="Categoria">
+        <button type="submit">Filtrar</button>
+      </form>
+
+      <button id="btnCarregarLivros">Recarregar livros</button>
+      <div id="listaLivros" class="cards"></div>
+    </section>
+
+    <section id="cadastro" class="pagina">
+      <h2>Cadastrar livro</h2>
+
+      <form id="formLivro" class="formulario">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" required>
+
+        <label for="autor">Autor</label>
+        <input type="text" id="autor" required>
+
+        <label for="categoria">Categoria</label>
+        <input type="text" id="categoria" required>
+
+        <label for="statusLivro">Status</label>
+        <select id="statusLivro">
+          <option value="disponivel">Disponível</option>
+          <option value="emprestado">Emprestado</option>
+          <option value="reservado">Reservado</option>
+        </select>
+
+        <button type="submit">Salvar livro</button>
+      </form>
+    </section>
+
+    <section id="reservas" class="pagina">
+      <h2>Reservas</h2>
+
+      <form id="formReserva" class="formulario">
+        <label for="livroReserva">Livro disponível</label>
+        <select id="livroReserva" required></select>
+
+        <label for="usuarioNome">Nome do usuário</label>
+        <input type="text" id="usuarioNome" required>
+
+        <label for="usuarioEmail">E-mail do usuário</label>
+        <input type="email" id="usuarioEmail" required>
+
+        <button type="submit">Criar reserva</button>
+      </form>
+
+      <button id="btnCarregarReservas">Recarregar reservas</button>
+      <div id="listaReservas" class="lista"></div>
+    </section>
+
+    <section id="configuracao" class="pagina">
+      <h2>Configuração da API</h2>
+
+      <form id="formConfig" class="formulario">
+        <label for="apiUrl">URL da API</label>
+        <input type="url" id="apiUrl" placeholder="http://127.0.0.1:5000/api">
+        <button type="submit">Salvar</button>
+      </form>
+
+      <p class="observacao">
+        Para usar o sistema, deixe o back-end rodando e abra este arquivo index.html no navegador.
+      </p>
+    </section>
+  </main>
+
+  <div id="mensagem"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
